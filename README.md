@@ -1,6 +1,11 @@
 # AnimeToday
 
 A modern anime discovery web application built with **React** and **Vite**, powered by the **Jikan API**. AnimeToday allows users to browse trending anime, search for titles, view detailed information, save favorites locally, and explore recommendations through a clean, responsive interface.
+## Live Demo
+
+GitHub Pages:
+
+https://nguyenhoangloc1903.github.io/AnimeToday
 
 ## Features
 
@@ -74,14 +79,6 @@ npm run build
 
 ```bash
 npm run preview
-```
-
-## Live Demo
-
-GitHub Pages:
-
-```
-https://nguyenhoangloc1903.github.io/AnimeToday
 ```
 
 ## Project Structure
