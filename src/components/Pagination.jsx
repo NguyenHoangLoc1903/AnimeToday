@@ -1,8 +1,15 @@
 const Pagination = ({
     currentPage,
+    totalPages,
     hasNextPage,
     onPageChange
 }) => {
+    const lastPage = totalPages ?? (
+        hasNextPage
+            ? currentPage + 2
+            : currentPage
+    );
+
     const handlePrev = () => {
         if (currentPage > 1) {
             onPageChange(currentPage - 1);
@@ -10,7 +17,7 @@ const Pagination = ({
     };
 
     const handleNext = () => {
-        if (hasNextPage) {
+        if (currentPage < lastPage) {
             onPageChange(currentPage + 1);
         }
     };
@@ -18,16 +25,9 @@ const Pagination = ({
     const pages = [];
 
     let start = Math.max(1, currentPage - 2);
-    let end = start + 4;
+    let end = Math.min(lastPage, start + 4);
 
-    if (end < 5) {
-        end = 5;
-    }
-
-    if (currentPage <= 3) {
-        start = 1;
-        end = 5;
-    }
+    start = Math.max(1, end - 4);
 
     for (let i = start; i <= end; i++) {
         pages.push(i);
@@ -35,6 +35,7 @@ const Pagination = ({
 
     return (
         <div className="pagination">
+
             <button
                 className="page-btn"
                 onClick={handlePrev}
@@ -44,6 +45,7 @@ const Pagination = ({
             </button>
 
             <div className="page-numbers">
+
                 {pages.map((page) => (
                     <button
                         key={page}
@@ -57,15 +59,17 @@ const Pagination = ({
                         {page}
                     </button>
                 ))}
+
             </div>
 
             <button
                 className="page-btn"
                 onClick={handleNext}
-                disabled={!hasNextPage}
+                disabled={currentPage >= lastPage}
             >
                 Next →
             </button>
+
         </div>
     );
 };
