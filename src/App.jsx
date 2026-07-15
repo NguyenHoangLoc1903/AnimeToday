@@ -19,6 +19,20 @@ import About from "./pages/About";
 const THEME_KEY = "theme";
 
 function App() {
+    useEffect(() => {
+        const redirect = sessionStorage.redirect;
+
+        if (redirect) {
+            delete sessionStorage.redirect;
+
+            window.history.replaceState(
+                null,
+                "",
+                redirect
+            );
+        }
+    }, []);
+    
     const [darkMode, setDarkMode] = useState(() => {
         return localStorage.getItem(THEME_KEY) === "dark";
     });
