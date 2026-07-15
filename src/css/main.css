@@ -1,0 +1,38 @@
+@import "theme.css";
+
+@import "./components/card.css";
+@import "./components/navbar.css";
+@import "./components/Pagination.css";
+@import "./components/empty.css";
+@import "./components/loading.css";
+@import "./components/scrolltop.css";
+
+
+@import "./pages/notfound.css";
+@import "./pages/detail.css";
+@import "./pages/about.css";
+
+@import "responsive.css";
+body {
+    background: linear-gradient(
+        180deg,
+        var(--p-50),
+        var(--p-100)
+    );
+    font-family: sans-serif;
+    color: var(--p-950);
+    line-height: var(--p-line-height);
+    transition: background 3s ease, color .3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 2rem 2.5rem;
+    background: var(--p-200);
+    border: 1px solid var(--p-400);
+    border-radius: 18px;
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04);
+}
